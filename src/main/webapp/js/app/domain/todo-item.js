@@ -22,18 +22,4 @@ define([
       return this.isCompleted();
   	}
   });
-  
-  return Backbone.Collection.extend({
-	  model: TodoItem,
-	  url: "/api/todo-items/delete/",
-	  getCompleted: function () {
-		  return this.filter(this._isCompleted);
-	  },
-	  getActive: function () {
-		  return this.reject(this._isCompleted);
-	  },
-	  _isCompleted: function (todo) {
-		  return todo.isCompleted();
-	  }
-  });
 });

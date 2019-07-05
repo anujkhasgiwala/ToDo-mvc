@@ -32,8 +32,8 @@ public class TodoItemService {
 	}
 
 	//To mark complete todo item  
-	public void delete(TodoItem todoItem) {
-		if(todoItemRepository.exists(todoItem.getId()))
-			todoItemRepository.delete(todoItem);
+	public void delete(Long id) {
+		if(todoItemRepository.exists(id))
+			todoItemRepository.delete(id);
 	}
 }

@@ -16,14 +16,17 @@
       <column name="CREATED" type="DATETIME">
         <constraints nullable="false" />
       </column>
+      <column name="IS_COMPLETED" type="BOOLEAN">
+        <constraints nullable="false" />
+      </column>
     </createTable>
   </changeSet>
   <changeSet id="seed-data" author="irt">
     <sql>
-      INSERT INTO TODO_ITEMS(DESCRIPTION, CREATED) VALUES ('Write some code', CURRENT_TIMESTAMP());
-      INSERT INTO TODO_ITEMS(DESCRIPTION, CREATED) VALUES ('Pick up groceries', CURRENT_TIMESTAMP());
-      INSERT INTO TODO_ITEMS(DESCRIPTION, CREATED) VALUES ('Practice guitar', CURRENT_TIMESTAMP());
-      INSERT INTO TODO_ITEMS(DESCRIPTION, CREATED) VALUES ('Go to post office', CURRENT_TIMESTAMP());
+      INSERT INTO TODO_ITEMS(DESCRIPTION, CREATED, IS_COMPLETED) VALUES ('Write some code', CURRENT_TIMESTAMP(), false);
+      INSERT INTO TODO_ITEMS(DESCRIPTION, CREATED, IS_COMPLETED) VALUES ('Pick up groceries', CURRENT_TIMESTAMP(), false);
+      INSERT INTO TODO_ITEMS(DESCRIPTION, CREATED, IS_COMPLETED) VALUES ('Practice guitar', CURRENT_TIMESTAMP(), false);
+      INSERT INTO TODO_ITEMS(DESCRIPTION, CREATED, IS_COMPLETED) VALUES ('Go to post office', CURRENT_TIMESTAMP(), false);
     </sql>
   </changeSet>
   <!--  To learn how to add a new column take a look at http://www.liquibase.org/documentation/changes/add_column.html -->
