@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.stanford.irt.domain.TodoItem;
@@ -36,14 +37,14 @@ public class TodoItemController {
 	}
 
 	// this is the rest api to mark todo as complete
-	@RequestMapping(value = "/api/todo-items/update/{id}", method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public TodoItem completeTodoItem(@PathVariable("id") Long id, @RequestBody TodoItem todoItem) {
-		return todoItemService.complete(id, todoItem);
+	@RequestMapping(value = "/api/todo-items/{id}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public TodoItem updateTodoItem(@PathVariable("id") Long id, @RequestBody TodoItem todoItem) {
+		return todoItemService.update(id, todoItem);
 	}
-	
-	
-	// this is the rest api to mark todo as complete
-	@RequestMapping(value = "/api/todo-items/delete/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+
+
+	// this is the rest api to delete todo
+	@RequestMapping(value = "/api/todo-items/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public void deleteTodoItem(@PathVariable("id") Long id) {
 		todoItemService.delete(id);
 	}

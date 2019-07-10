@@ -21,13 +21,13 @@ define([
       'keydown @ui.edit': 'onEditKeypress',
       'focusout @ui.edit': 'onEditFocusout',
       'click @ui.toggle': 'toggle',
-      'click @ui.destry': 'destroyClick'
+      'click @ui.destroy': 'destroy'
     },
     modelEvents: {
       change: 'render'
     },
     toggle: function() {
-      this.model.toggle().save();
+    	this.model.toggle().save();
     },
     onEditClick: function() {
       this.$el.addClass('editing');
@@ -38,7 +38,7 @@ define([
       var todoText = this.ui.edit.val().trim();
 
       if (todoText) {
-        this.model.set('description', todoText).save();
+    	  this.model.set('description', todoText).save();
         this.$el.removeClass('editing');
       } else {
         this.destroy();
@@ -58,8 +58,8 @@ define([
         this.$el.removeClass('editing');
       }
     },
-    destroyClick: function() {
-    	
+    destroy: function() {
+    	this.model.destroy();
     }
   });
 });

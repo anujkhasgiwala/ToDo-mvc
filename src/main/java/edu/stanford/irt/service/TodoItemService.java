@@ -23,12 +23,14 @@ public class TodoItemService {
 		return todoItemRepository.save(todoItem);
 	}
 
-	// To mark complete todo item  
-	public TodoItem complete(Long id, TodoItem todoItem) {
-		if(todoItemRepository.exists(id))
+	// To update description of todo item  
+	public TodoItem update(Long id, TodoItem todoItem) {
+		if(todoItemRepository.exists(id)) {
 			todoItemRepository.save(todoItem);
+			return todoItem;
+		}
 
-		return todoItem;
+		return null;
 	}
 
 	//To mark complete todo item  
